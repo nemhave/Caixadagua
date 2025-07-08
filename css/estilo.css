@@ -59,7 +59,7 @@ body {
     position: absolute;
     width: 20%;
     height: auto;
-    bottom: 0;
+    bottom: 10%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
