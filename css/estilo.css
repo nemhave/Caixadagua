@@ -1,0 +1,97 @@
+/* Reset básico e estilos globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #87CEEB; /* Cor de céu para fundo */
+}
+
+/* Container principal usando Grid */
+.container {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    height: 100vh;
+    position: relative;
+}
+
+/* Imagem de fundo com as linhas de transmissão */
+.background {
+    grid-row: 1;
+    grid-column: 1;
+    width: 100%;
+    height: 100%;
+    background-image: url('../imagens/torres.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    z-index: 1;
+}
+
+/* Container para o balão animado */
+.balloon-container {
+    grid-row: 1;
+    grid-column: 1;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+/* Estilos para o balão */
+.balloon {
+    position: absolute;
+    width: 10%; /* Tamanho do balão */
+    height: auto;
+    bottom: 0;
+    right: 50%; /* Começa na direita */
+    transition: all 0.3s linear;
+    z-index: 3;
+}
+
+/* Balão no chão (quando toca a linha) */
+.balloon-ground {
+    position: absolute;
+    width: 20%;
+    height: auto;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: none; /* Inicialmente escondido */
+}
+
+/* Classe para animação */
+.balloon-animate {
+    animation: balloonRise 10s linear forwards;
+}
+
+/* Animação do balão subindo em diagonal */
+@keyframes balloonRise {
+    0% {
+        bottom: 0;
+        right: 50%;
+        transform: rotate(45deg);
+    }
+    25% {
+        bottom: 25%;
+        right: 25%;
+    }
+    50% {
+        bottom: 50%;
+        right: 15%;
+    }
+    75% {
+        bottom: 75%;
+        right: 5%;
+    }
+    100% {
+        bottom: 100%;
+        right: 0;
+    }
+}
